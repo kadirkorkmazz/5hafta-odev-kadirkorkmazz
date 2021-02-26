@@ -19,8 +19,6 @@ export const addTaskToApi = (task) => {
 
 export const deleteTaskToApi = (id) => {
   return fetch(`${API_URL}/${id}`, {
-    method: 'delete',    
-  })
-  .then(res => res.json())
-  
+    method: 'delete',
+  }).then((res) => res.json());
 };

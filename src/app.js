@@ -3,27 +3,30 @@ import { getDataFromApi, addTaskToApi, deleteTaskToApi } from './data';
 
 class PomodoroApp {
   constructor(options) {
-    let { tableTbodySelector, taskFormSelector, deleteButtonSelector,addTaskButtonSelector } = options;
+    let {
+      tableTbodySelector,
+      taskFormSelector,
+      deleteButtonSelector,
+      addTaskButtonSelector,
+    } = options;
     this.$tableTbody = document.querySelector(tableTbodySelector);
     this.$taskForm = document.querySelector(taskFormSelector);
     this.$taskFormInput = this.$taskForm.querySelector('input');
     this.$deleteButton = document.querySelectorAll(deleteButtonSelector);
-    this.$addTaskButton = document.getElementById("addTaskButton");
-
+    this.$addTaskButton = document.getElementById('addTaskButton');
   }
 
   addTask(task) {
-    this.$addTaskButton.innerHTML="Loading..."
-    this.$addTaskButton.disabled=true
+    this.$addTaskButton.innerHTML = 'Loading...';
+    this.$addTaskButton.disabled = true;
     addTaskToApi(task)
       .then((data) => data.json())
       .then((newTask) => {
         this.addTaskToTable(newTask);
-        this.$addTaskButton.innerHTML="Add Task"
-        this.$addTaskButton.disabled=false;
+        this.$addTaskButton.innerHTML = 'Add Task';
+        this.$addTaskButton.disabled = false;
         this.deleteRows();
       });
-      
   }
 
   addTaskToTable(task, index) {
@@ -45,27 +48,22 @@ class PomodoroApp {
     getDataFromApi().then((currentTasks) => {
       currentTasks.forEach((task, index) => {
         this.addTaskToTable(task, index + 1);
-        
-
       });
     });
   }
-  
-  
-  getDeleteButtons(){
-    return document.querySelectorAll(".delete");
+
+  getDeleteButtons() {
+    return document.querySelectorAll('.delete');
   }
 
   deleteRows() {
-    getDataFromApi().then(() =>{
+    getDataFromApi().then(() => {
       let buttons = this.getDeleteButtons();
-      buttons.forEach((button) =>{
-        button.addEventListener("click", () => {
-          deleteTaskToApi(button.id)
-          .then(button.parentElement.remove())
-
-        })
-      })
+      buttons.forEach((button) => {
+        button.addEventListener('click', () => {
+          deleteTaskToApi(button.id).then(button.parentElement.remove());
+        });
+      });
     });
   }
 
@@ -73,7 +71,6 @@ class PomodoroApp {
     this.fillTasksTable();
     this.handleAddTask();
     //this.deleteRows();
-    
   }
 }
 
