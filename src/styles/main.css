@@ -25,3 +25,12 @@
 .action-buttons .btn + .btn {
     margin-left: 15px;
 }
+
+tbody {
+    counter-reset: section;
+  }
+
+  h6::before {
+    counter-increment: section;
+    content: counter(section);
+  }
