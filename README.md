@@ -17,7 +17,7 @@ npm install
 npm run dev
 ```
 
-### Projede neler yaptım? (26.02.2021)
+### Projede neler yaptım?
 
 1. Eklenen görevlerin yanına silme butonu eklendi ve butonlara ilgili görevi silme fonksiyonu eklendi.
 2. Yeni bir görev eklerken "Add Task" butonu disable hale getirildi ve buton yazısı bu süreç boyunca "Loading..." olarak güncellendi.
@@ -31,7 +31,6 @@ npm run dev
 #
 
 
-Ödev *21.02.2021 - 28.02.2020* (Yapıldı)
 
 [![Work in Repl.it](https://classroom.github.com/assets/work-in-replit-14baed9a392b3a25080506f3b7b6d57f295ec2978f6f33ec97e36a161684cbe9.svg)](https://classroom.github.com/online_ide?assignment_repo_id=4195009&assignment_repo_type=AssignmentRepo)
 
